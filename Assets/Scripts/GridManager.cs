@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private int _width, _height;
 
-    // Update is called once per frame
-    void Update()
+    void GenerateGrid()
     {
-        
+
     }
 }
