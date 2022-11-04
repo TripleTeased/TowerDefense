@@ -7,5 +7,7 @@ public class PathScriptableObject : ScriptableObject
 {
     public string pathName;
 
+    public Color color;
+
     public Vector2[] pathPoints;
 }

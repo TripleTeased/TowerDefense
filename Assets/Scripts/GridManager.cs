@@ -80,7 +80,8 @@ public class GridManager : Singleton<GridManager>
         {
             foreach (Vector2 point in path.pathPoints)
             {
-                Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(point.x, point.y), Quaternion.identity, _tileParent.transform);
+                GameObject obj = Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(point.x, point.y), Quaternion.identity, _tileParent.transform);
+                obj.GetComponent<SpriteRenderer>().color=path.color;
             }
         }
     }
