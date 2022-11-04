@@ -12,6 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621b78c5aae82f64ea419067038f1e82, type: 3}
   m_Name: PurplePath
   m_EditorClassIdentifier: 
-  pathName: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  pathPoints: []
+  pathName: PurplePath
+  color: {r: 0.46274513, g: 0.37647063, b: 0.5411765, a: 1}
+  pathPoints:
+  - {x: 10, y: 11}
+  - {x: 11, y: 11}
+  - {x: 12, y: 11}
+  - {x: 13, y: 11}
+  - {x: 10, y: 12}
+  - {x: 11, y: 12}
+  - {x: 12, y: 12}
+  - {x: 13, y: 12}
+  - {x: 8, y: 13}
+  - {x: 9, y: 13}
+  - {x: 10, y: 13}
+  - {x: 11, y: 13}
+  - {x: 3, y: 14}
+  - {x: 4, y: 14}
+  - {x: 5, y: 14}
+  - {x: 6, y: 14}
+  - {x: 7, y: 14}
+  - {x: 8, y: 14}
+  - {x: 9, y: 14}
+  - {x: 3, y: 15}
+  - {x: 4, y: 15}
+  - {x: 5, y: 15}
+  - {x: 6, y: 15}
+  - {x: 7, y: 15}
+  - {x: 8, y: 15}
+  - {x: 9, y: 15}
+  - {x: 2, y: 16}
+  - {x: 3, y: 16}
+  - {x: 4, y: 16}
+  - {x: 2, y: 17}
+  - {x: 3, y: 17}
+  - {x: 4, y: 17}
+  - {x: 2, y: 18}
+  - {x: 3, y: 18}
+  - {x: 1, y: 19}
+  - {x: 2, y: 19}
+  - {x: 3, y: 19}

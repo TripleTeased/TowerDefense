@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: YellowPath
   m_EditorClassIdentifier: 
   pathName: 
+  color: {r: 1, g: 0.9490197, b: 0.8000001, a: 1}
   pathPoints:
   - {x: 35, y: 8}
   - {x: 35, y: 9}
@@ -48,5 +49,3 @@ MonoBehaviour:
   - {x: 21, y: 11}
   - {x: 20, y: 10}
   - {x: 20, y: 11}
-  - {x: 19, y: 10}
-  - {x: 19, y: 11}

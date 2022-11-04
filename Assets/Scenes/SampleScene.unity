@@ -159,7 +159,15 @@ MonoBehaviour:
   _tilePrefab: {fileID: 8381489301119866166, guid: ecca5c930e7a92c4980e9e8dc7b3c116,
     type: 3}
   _cam: {fileID: 519420032}
-  pathObject: {fileID: 11400000, guid: 77b73d059618bd8489c54471cfee4f71, type: 2}
+  paths:
+  - {fileID: 11400000, guid: 77b73d059618bd8489c54471cfee4f71, type: 2}
+  - {fileID: 11400000, guid: a55cd189e7bb655479067a3d53c3c1c7, type: 2}
+  - {fileID: 11400000, guid: 77f81fa69152def4f85ffd93010737a7, type: 2}
+  - {fileID: 11400000, guid: 615ec462e293f1c4fb0b99f2d457db3c, type: 2}
+  - {fileID: 11400000, guid: 70b33352f95cbba41ad1fc9add3710e4, type: 2}
+  - {fileID: 11400000, guid: 900d2a0911437d0449f1b4d44391ca01, type: 2}
+  - {fileID: 11400000, guid: b761101b879e6934b8a885c74c9fc7d3, type: 2}
+  - {fileID: 11400000, guid: 6699be8374ca90740bf024068caab231, type: 2}
 --- !u!4 &189547066
 Transform:
   m_ObjectHideFlags: 0
