@@ -34,6 +34,7 @@ public class GridManager : Singleton<GridManager>
     private int yLength = 0;
 
     public PathScriptableObject[] paths;
+    public bool onBuildMode = false;
 
     #endregion
 
@@ -43,6 +44,12 @@ public class GridManager : Singleton<GridManager>
     {
         GenerateGrid();
         SpawnPath();
+    }
+
+    public void ToggleBuildMode()
+    {
+        onBuildMode = !onBuildMode;
+        Debug.Log(onBuildMode);
     }
 
     void GenerateGrid()
@@ -81,7 +88,7 @@ public class GridManager : Singleton<GridManager>
             foreach (Vector2 point in path.pathPoints)
             {
                 GameObject obj = Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(point.x, point.y), Quaternion.identity, _tileParent.transform);
-                obj.GetComponent<SpriteRenderer>().color=path.color;
+                obj.GetComponent<SpriteRenderer>().color = path.color;
             }
         }
     }
