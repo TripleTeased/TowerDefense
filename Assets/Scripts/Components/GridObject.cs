@@ -10,7 +10,7 @@ public enum ObjectType
     CenterTower = 3
 }
 
-public class GridObject : MonoBehaviour
+public class GridObject
 {
 
     #region Properties

@@ -22,6 +22,9 @@ public class GridManager : Singleton<GridManager>
     [SerializeField]
     private GameObject _tilePrefab;
 
+    [SerializeField]
+    private GameObject _enemy;
+
     /// <summary>
     /// Camera transform.
     /// This is used to center camera on the grid that is created.
@@ -34,6 +37,7 @@ public class GridManager : Singleton<GridManager>
     private int yLength = 0;
 
     public PathScriptableObject[] paths;
+    public bool onBuildMode = false;
 
     #endregion
 
@@ -43,6 +47,13 @@ public class GridManager : Singleton<GridManager>
     {
         GenerateGrid();
         SpawnPath();
+        EnemySetup();
+    }
+
+    public void ToggleBuildMode()
+    {
+        onBuildMode = !onBuildMode;
+        Debug.Log(onBuildMode);
     }
 
     void GenerateGrid()
@@ -81,9 +92,20 @@ public class GridManager : Singleton<GridManager>
             foreach (Vector2 point in path.pathPoints)
             {
                 GameObject obj = Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(point.x, point.y), Quaternion.identity, _tileParent.transform);
-                obj.GetComponent<SpriteRenderer>().color=path.color;
+                obj.GetComponent<SpriteRenderer>().color = path.color;
             }
         }
+    }
+
+    void EnemySetup()
+    {
+        foreach(PathScriptableObject path in paths)
+        {
+            GameObject enemy = Instantiate(_enemy);
+            Enemy enemyScript = enemy.AddComponent<Enemy>();
+            enemyScript.SetupEnemy(path.wayPoints);
+        }
+
     }
 
     #endregion
