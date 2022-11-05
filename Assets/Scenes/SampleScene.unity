@@ -158,6 +158,7 @@ MonoBehaviour:
   _tileParent: {fileID: 1299450767}
   _tilePrefab: {fileID: 8381489301119866166, guid: ecca5c930e7a92c4980e9e8dc7b3c116,
     type: 3}
+  _enemy: {fileID: 3770226838777731889, guid: cff71b66d75b73c4aabea37154ce1816, type: 3}
   _cam: {fileID: 519420032}
   paths:
   - {fileID: 11400000, guid: 77b73d059618bd8489c54471cfee4f71, type: 2}
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 1690365273}
   hammerIcon: {fileID: 21300000, guid: 1bdec2d3ce3f9444ca8c9306d26c0ef0, type: 3}
-  closeIcon: {fileID: 21300000, guid: acc2813ecd7f2a54ea50ca43ef7a517a, type: 3}
+  closeIcon: {fileID: 21300000, guid: cec80ddcde52f8c41910e4a5b4449856, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

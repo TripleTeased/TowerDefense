@@ -10,4 +10,6 @@ public class PathScriptableObject : ScriptableObject
     public Color color;
 
     public Vector2[] pathPoints;
+
+    public Vector2[] wayPoints;
 }
