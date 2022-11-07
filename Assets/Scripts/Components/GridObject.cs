@@ -18,6 +18,7 @@ public class GridObject
     public ObjectType objectType;
     public Vector2 location;
 
+
     #endregion
 
     #region Constructors
@@ -41,6 +42,8 @@ public class GridObject
         objectType = _objectType;
         location = _location;
     }
+
+
 
     #endregion
 

@@ -32,8 +32,24 @@ public static class HelperFunctions
     /// <param name="x">X location of object.</param>
     /// <param name="y">Y location of object.</param>
     /// <returns>Vector2 of location.</returns>
+    /// 
     public static Vector2 GetScreenLocationBasedOnArrayPosition(int x, int y)
     {
         return new Vector2(x / 2f, y / 2f);
+    }
+
+    public static Vector2 GetArrayPositionBasedOnScreenLocation(int x, int y)
+    {
+        return new Vector2(x * 2f, y * 2f);
+    }
+
+    public static Vector2 GetArrayPositionBasedOnScreenLocation(Vector2 point)
+    {
+        return new Vector2(Mathf.Round(point.x * 2f), Mathf.Round(point.y * 2f));
+    }
+
+    public static Vector2 GetArrayPositionBasedOnScreenLocation(float x, float y)
+    {
+        return new Vector2(Mathf.Round(x * 2f), Mathf.Round(y * 2f));
     }
 }

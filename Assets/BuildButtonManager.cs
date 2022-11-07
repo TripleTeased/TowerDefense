@@ -11,6 +11,7 @@ public class BuildButtonManager : MonoBehaviour
     [SerializeField]
     private Image _image;
 
+
     public Sprite hammerIcon;
     public Sprite closeIcon;
 
@@ -22,6 +23,7 @@ public class BuildButtonManager : MonoBehaviour
     public void ToggleBuildMode()
     {
         GridManager.Instance.onBuildMode = !GridManager.Instance.onBuildMode;
+        Debug.Log(GridManager.Instance.onBuildMode);
 
         if (GridManager.Instance.onBuildMode)
         {
