@@ -32,12 +32,14 @@ public class GridManager : Singleton<GridManager>
     [SerializeField]
     private Transform _cam;
 
+
     public GridObject[,] Grid = null;
     private int xLength = 0;
     private int yLength = 0;
 
     public PathScriptableObject[] paths;
     public bool onBuildMode = false;
+
 
     #endregion
 
@@ -73,7 +75,8 @@ public class GridManager : Singleton<GridManager>
                 if (x >= xMidPoint - 1 && x <= xMidPoint + 1 && y >= yMidPoint - 1 && y <= yMidPoint + 1)
                 {
                     Grid[x, y] = new GridObject(ObjectType.CenterTower, new Vector2(x, y));
-                    Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(x, y), Quaternion.identity, _tileParent.transform);
+                    var spawnedTile = Instantiate(_tilePrefab, HelperFunctions.GetScreenLocationBasedOnArrayPosition(x, y), Quaternion.identity, _tileParent.transform);
+                    // spawnedTile.name = $"Tile {x} {y}";
                 }
                 else
                 {
