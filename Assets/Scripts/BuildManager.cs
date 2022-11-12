@@ -65,6 +65,7 @@ public class BuildManager : Singleton<BuildManager>
                         GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity, _towerParent.transform); //you can make a tower!
                         obj.name = "Tower: " + _towerCount;
                         _towerCount++;
+                        break;
                     }
                     else //otherwise....
                     {
