@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public BuildManager buildManager;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +27,7 @@ public class Path : MonoBehaviour
 
     void OnMouseDown()
     {
-        buildManager.checkIfEmpty();
+        BuildManager.Instance.checkIfTileOccupied();
         Debug.Log("Pathway at this location");
     }
 }
