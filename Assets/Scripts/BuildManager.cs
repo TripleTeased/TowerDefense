@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildManager : MonoBehaviour
+public class BuildManager : Singleton<BuildManager>
 {
+
     [SerializeField] 
     private Camera _camera;
 
@@ -11,9 +12,11 @@ public class BuildManager : MonoBehaviour
     private GameObject _tower;
 
     [SerializeField]
-    private GameObject _tileParent;
+    private GameObject _towerParent;
 
-    public bool blankSpace = true;
+    public bool buildableTile = true;
+
+    private int _towerCount = 1; 
 
 
     // Start is called before the first frame update
@@ -28,8 +31,7 @@ public class BuildManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //Grid = new GridObject[xLength, yLength];
-            if (GridManager.Instance.onBuildMode && blankSpace)
+            if (GridManager.Instance.onBuildMode && buildableTile)
             {
                 Vector3 worldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -43,28 +45,20 @@ public class BuildManager : MonoBehaviour
 
                 Debug.Log("Tower made at: "+ worldPosition.x +", " + worldPosition.y);
 
-                GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity);
+                GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity, _towerParent.transform);
+                obj.name ="Tower: "+_towerCount;
+                _towerCount++;
                 //GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity);//click tile to build a tower
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)) //reset boolean when mousebutton up
         {
-            blankSpace = true;
+            buildableTile = true;
         }
     }
 
-    public void checkIfEmpty()
+    public void checkIfTileOccupied() //if there is something on the tile you click on in build mode
     {
-        blankSpace = false;
+        buildableTile = false; //no building
     }
-
-    /*void OnMouseEnter()
-    {
-        transform.GetChild(0).gameObject.SetActive(true);
-    }
-    void OnMouseExit()
-    {
-        transform.GetChild(0).gameObject.SetActive(false);
-    }*/
-
 }

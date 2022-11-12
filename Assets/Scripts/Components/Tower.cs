@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public BuildManager buildManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,7 @@ public class Tower : MonoBehaviour
 
     void OnMouseDown()
     {
-        buildManager.checkIfEmpty();
+        BuildManager.Instance.checkIfTileOccupied();
         Debug.Log("Clicked\n");
     }
 }
