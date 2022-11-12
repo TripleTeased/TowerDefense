@@ -15,7 +15,7 @@ MonoBehaviour:
   pathName: BluePath
   color: {r: 0.854902, g: 0.909804, b: 0.98823535, a: 1}
   pathPoints:
-  - {x: 1, y: 0}
+  - {x: 6, y: 0}
   - {x: 7, y: 0}
   - {x: 8, y: 0}
   - {x: 9, y: 0}

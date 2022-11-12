@@ -24,7 +24,9 @@ public class BuildManager : Singleton<BuildManager>
 
     public bool buildableTile = true;
 
-    private int _towerCount = 1; 
+    private int _towerCount = 1;
+
+    public Collider2D[] neighborColliders; //will store an array of colliders that are around where we wanna build
 
 
     // Start is called before the first frame update
@@ -35,16 +37,15 @@ public class BuildManager : Singleton<BuildManager>
 
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
-        _partsCounterText.text = _partsCounter.ToString();
-        _partsCounter++;
+        _partsCounterText.text = _partsCounter.ToString(); //updates partCounter UI
 
         if (Input.GetMouseButtonDown(0))
         {
             if (GridManager.Instance.onBuildMode && buildableTile)
             {
-                Vector3 worldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 worldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
 
                 worldPosition.x *= 2;
                 worldPosition.x = Mathf.Round(worldPosition.x);
@@ -54,12 +55,23 @@ public class BuildManager : Singleton<BuildManager>
                 worldPosition.y = Mathf.Round(worldPosition.y);
                 worldPosition.y /= 2;
 
-                Debug.Log("Tower made at: "+ worldPosition.x +", " + worldPosition.y);
+                neighborColliders = Physics2D.OverlapCircleAll(worldPosition, 0.5f); //stores a list of colliders that are near the tile you select
 
-                GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity, _towerParent.transform);
-                obj.name ="Tower: "+_towerCount;
-                _towerCount++;
-                //GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity);//click tile to build a tower
+                for(int i = 0; i < neighborColliders.Length; i++) //loops through the stored list
+                {
+                    if (neighborColliders[i].tag == "Path") //if anything in the list is tagged as a path...
+                    {
+                        Debug.Log("Tower made at: " + worldPosition.x + ", " + worldPosition.y);
+                        GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity, _towerParent.transform); //you can make a tower!
+                        obj.name = "Tower: " + _towerCount;
+                        _towerCount++;
+                    }
+                    else //otherwise....
+                    {
+                        Debug.Log("No path neighbors!"); //NOTHING 
+                    }
+                }
+
             }
         }
         if (Input.GetMouseButtonUp(0)) //reset boolean when mousebutton up
