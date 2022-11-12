@@ -15,6 +15,14 @@ public class BuildButtonManager : MonoBehaviour
     public Sprite hammerIcon;
     public Sprite closeIcon;
 
+    public GameObject rockIcon;
+    public GameObject paperIcon;
+    public GameObject scissorIcon;
+
+    private GameObject _rockIcon;
+    private GameObject _paperIcon;
+    private GameObject _scissorIcon;
+
     #endregion
 
 
@@ -28,10 +36,16 @@ public class BuildButtonManager : MonoBehaviour
         if (GridManager.Instance.onBuildMode)
         {
             _image.sprite = closeIcon;
+            _rockIcon = Instantiate(rockIcon, transform.parent);
+            _paperIcon = Instantiate(paperIcon, transform.parent);
+            _scissorIcon = Instantiate(scissorIcon, transform.parent);
         } 
         else
         {
             _image.sprite = hammerIcon;
+            Destroy(_rockIcon);
+            Destroy(_paperIcon);
+            Destroy(_scissorIcon);
         }
     }
 

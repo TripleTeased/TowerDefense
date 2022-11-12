@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildManager : Singleton<BuildManager>
 {
@@ -13,6 +14,13 @@ public class BuildManager : Singleton<BuildManager>
 
     [SerializeField]
     private GameObject _towerParent;
+
+    [SerializeField]
+    private int _towerType = 1; //1 = rock 2 = paper 3 = scissors
+
+    [SerializeField]
+    private Text _partsCounterText;
+    private int _partsCounter = 0; 
 
     public bool buildableTile = true;
 
@@ -29,6 +37,9 @@ public class BuildManager : Singleton<BuildManager>
     // Update is called once per frame
     void Update()
     {
+        _partsCounterText.text = _partsCounter.ToString();
+        _partsCounter++;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (GridManager.Instance.onBuildMode && buildableTile)
