@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3497786406441787923}
   - component: {fileID: 3497786406441787922}
   m_Layer: 0
-  m_Name: scissorTower
+  m_Name: towerDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

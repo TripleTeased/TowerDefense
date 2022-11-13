@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildButtonManager : MonoBehaviour
+public class BuildButtonManager : Singleton<BuildButtonManager>
 {
 
     #region Properties
@@ -19,16 +19,15 @@ public class BuildButtonManager : MonoBehaviour
     public GameObject paperIcon;
     public GameObject scissorIcon;
 
-    private GameObject _rockIcon;
-    private GameObject _paperIcon;
-    private GameObject _scissorIcon;
+    public int towerType;
 
     #endregion
 
 
     #region Functions
 
-    public void ToggleBuildMode()
+
+        public void ToggleBuildMode()
     {
         GridManager.Instance.onBuildMode = !GridManager.Instance.onBuildMode;
         Debug.Log(GridManager.Instance.onBuildMode);
@@ -36,19 +35,37 @@ public class BuildButtonManager : MonoBehaviour
         if (GridManager.Instance.onBuildMode)
         {
             _image.sprite = closeIcon;
-            _rockIcon = Instantiate(rockIcon, transform.parent);
-            _paperIcon = Instantiate(paperIcon, transform.parent);
-            _scissorIcon = Instantiate(scissorIcon, transform.parent);
+            rockIcon.SetActive(true);
+            paperIcon.SetActive(true);
+            scissorIcon.SetActive(true);
         } 
         else
         {
             _image.sprite = hammerIcon;
-            Destroy(_rockIcon);
-            Destroy(_paperIcon);
-            Destroy(_scissorIcon);
+            rockIcon.SetActive(false);
+            paperIcon.SetActive(false);
+            scissorIcon.SetActive(false);
         }
     }
 
+
+    public void OnRockClick()
+    {
+        towerType = 1;
+        Debug.Log("CLICKED ROCK");
+    }
+
+    public void OnPaperClick()
+    {
+        towerType = 2;
+        Debug.Log("CLICKED PAPER");   
+    }
+
+    public void OnScissorsClick()
+    {
+        towerType = 3;
+        Debug.Log("CLICKED SCISSORS");
+    }
     #endregion
 
 }
