@@ -28,19 +28,6 @@ public class BuildManager : Singleton<BuildManager>
 
     public Collider2D[] neighborColliders; //will store an array of colliders that are around where we wanna build
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-
-    private void Awake()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update() 
     {
