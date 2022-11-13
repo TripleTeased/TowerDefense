@@ -28,14 +28,6 @@ public class BuildManager : Singleton<BuildManager>
 
     public Collider2D[] neighborColliders; //will store an array of colliders that are around where we wanna build
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-
     // Update is called once per frame
     void Update() 
     {
@@ -63,6 +55,8 @@ public class BuildManager : Singleton<BuildManager>
                     {
                         Debug.Log("Tower made at: " + worldPosition.x + ", " + worldPosition.y);
                         GameObject obj = Instantiate(_tower, new Vector2(worldPosition.x, worldPosition.y), Quaternion.identity, _towerParent.transform); //you can make a tower!
+                        Debug.Log("Tower type being created:" + BuildButtonManager.Instance.towerType);
+                        obj.GetComponent<Tower>().towerType = BuildButtonManager.Instance.towerType; 
                         obj.name = "Tower: " + _towerCount;
                         _towerCount++;
                         break;
